@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 13:47:28 by ebella            #+#    #+#             */
-/*   Updated: 2026/01/20 14:14:02 by ebella           ###   ########.fr       */
+/*   Updated: 2026/01/22 16:32:21 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <string>
 #include <iostream>
 #include <exception>
+
+#include "AForm.hpp"
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -49,7 +51,8 @@ class Bureaucrat
 
 		std::string getName() const;
 		int getGrade() const;
-		void signForm(Form& form);
+		void signForm(AForm& form);
+		void executeForm(AForm const &form) const;
 		
 		void incrementGrade();
 		void decrementGrade();

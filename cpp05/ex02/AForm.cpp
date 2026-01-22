@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:08:27 by ebella            #+#    #+#             */
-/*   Updated: 2026/01/21 11:46:26 by ebella           ###   ########.fr       */
+/*   Updated: 2026/01/22 16:19:18 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,20 @@ void AForm::beSigned(Bureaucrat& bureaucrat)
 	if (bureaucrat.getGrade() > this->gradeToSign)
 		throw GradeTooLowException();
 	this->isSigned = true;
+}
+
+void AForm::execute(Bureaucrat const &executor) const {
+	if (!this->isSigned)
+		throw AForm::FormNotSignedException();
+	if (executor.getGrade() > this->gradeToExecute)
+		throw AForm::GradeTooLowException();
+
+	this->performAction();
+}
+
+const char* AForm::FormNotSignedException::what() const throw()
+{
+	return "Form Not Signed ! (please make sure to sign it first)";
 }
 
 const char* AForm::GradeTooHighException::what() const throw()
