@@ -33,6 +33,7 @@ class AForm
 {
 	private:
 		std::string const name;
+		std::string const target;
 		bool isSigned;
 		const int gradeToSign;
 		const int gradeToExecute;
@@ -42,12 +43,13 @@ class AForm
 	
 	public:
 		AForm();
-		AForm(std::string const &name, int gradeToSign, int gradeToExecute);
+		AForm(std::string const &name, std::string const &target, int gradeToSign, int gradeToExecute);
 		AForm(const AForm& other);
 		AForm& operator=(const AForm& other);
 		virtual ~AForm();
 		
 		std::string getName() const;
+		std::string getTarget() const;
 		bool getIsSigned() const;
 		int getGradeToSign() const;
 		int getGradeToExecute() const;

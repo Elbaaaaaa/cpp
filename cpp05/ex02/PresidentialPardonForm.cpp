@@ -12,14 +12,27 @@
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm",25, 5)
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", "Default", 25, 5)
 {
 	std::cout << GREEN << "PresidentialPardonForm default constructor called" << RESET << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : AForm(target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : AForm("PresidentialPardonForm", target, 25, 5)
 {
 	std::cout << GREEN << "PresidentialPardonForm constructor called" << RESET << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other)
+{
+	std::cout << GREEN << "PresidentialPardonForm copy constructor called" << RESET << std::endl;
+}
+
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
+{
+	std::cout << YELLOW << "PresidentialPardonForm assignment operator called" << RESET << std::endl;
+	if (this != &other)
+		AForm::operator=(other);
+	return *this;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
@@ -29,5 +42,5 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 void PresidentialPardonForm::performAction() const 
 {
-	std::cout << BLUE << this->getName() << " Has been pardoned by Zaphod Beeblebrox" << RESET << std::endl;
+	std::cout << BLUE << this->getTarget() << " Has been pardoned by Zaphod Beeblebrox" << RESET << std::endl;
 }

@@ -1,9 +1,9 @@
-NAME = Bureaucrat
+NAME = ScalarConverter
 
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRC = main.cpp Serializer.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

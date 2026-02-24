@@ -29,7 +29,7 @@
 #define WHITE   "\033[37m"
 #define ORANGE "\033[38;5;208m"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {

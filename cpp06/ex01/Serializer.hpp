@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 12:56:23 by ebella            #+#    #+#             */
-/*   Updated: 2026/01/24 13:12:44 by ebella           ###   ########.fr       */
+/*   Created: 2026/02/12 14:18:45 by ebella            #+#    #+#             */
+/*   Updated: 2026/02/12 14:18:45 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_H
-#define ROBOTOMYREQUESTFORM_H
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
 #include <string>
 #include <iostream>
-#include <exception>
-#include <fstream>
-#include <ctime>
-#include <cstdlib>
-
-#include "AForm.hpp"
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -32,16 +26,17 @@
 #define WHITE   "\033[37m"
 #define ORANGE "\033[38;5;208m"
 
-class RobotomyRequestForm : public AForm
-{		
+class Serializer 
+{
+	private:
+		Serializer();
+		~Serializer();
+		Serializer(const Serializer& other);
+		Serializer& operator=(const Serializer& other);
+	
 	public:
-		RobotomyRequestForm();
-		RobotomyRequestForm(const std::string& target);
-		RobotomyRequestForm(const RobotomyRequestForm& other);
-		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
-		~RobotomyRequestForm();
-		
-		virtual void performAction() const;		
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
 
-#endif
+#endif	

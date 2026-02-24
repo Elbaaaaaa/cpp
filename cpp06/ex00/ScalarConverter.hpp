@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 12:56:23 by ebella            #+#    #+#             */
-/*   Updated: 2026/01/24 13:12:44 by ebella           ###   ########.fr       */
+/*   Created: 2026/02/09 11:11:47 by ebella            #+#    #+#             */
+/*   Updated: 2026/02/09 11:11:47 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_H
-#define ROBOTOMYREQUESTFORM_H
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
 #include <string>
 #include <iostream>
-#include <exception>
-#include <fstream>
-#include <ctime>
 #include <cstdlib>
-
-#include "AForm.hpp"
+#include <climits>
+#include <cfloat>
+#include <cmath>
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -32,16 +30,16 @@
 #define WHITE   "\033[37m"
 #define ORANGE "\033[38;5;208m"
 
-class RobotomyRequestForm : public AForm
-{		
+class ScalarConverter
+{
+	private:
+		ScalarConverter();
+		ScalarConverter(const ScalarConverter& other);
+		ScalarConverter& operator=(const ScalarConverter& other);
+		~ScalarConverter();
+
 	public:
-		RobotomyRequestForm();
-		RobotomyRequestForm(const std::string& target);
-		RobotomyRequestForm(const RobotomyRequestForm& other);
-		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
-		~RobotomyRequestForm();
-		
-		virtual void performAction() const;		
+		static void convert(std::string literal);
 };
 
 #endif

@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
 #include "AForm.hpp"
-
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include <ctime>
+#include <cstdlib>
 
 int main()
 {
+    std::srand(std::time(NULL));
     std::cout << MAGENTA << "========== TESTS MODULE 05 EX02 ==========" << RESET << std::endl;
 
     try {
