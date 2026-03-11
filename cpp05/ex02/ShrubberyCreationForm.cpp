@@ -12,12 +12,12 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm",145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", "Default", 145, 137)
 {
 	std::cout << GREEN << "ShrubberyCreationForm default constructor called" << RESET << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : AForm(target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : AForm("ShrubberyCreationForm", target, 145, 137)
 {
 	std::cout << GREEN << "ShrubberyCreationForm constructor called" << RESET << std::endl;
 }
@@ -41,7 +41,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 }
 
 void ShrubberyCreationForm::performAction() const {
-    std::ofstream ofs((this->getName() + "_shrubbery").c_str());
+    std::ofstream ofs((this->getTarget() + "_shrubbery").c_str());
     if (ofs.is_open()) {
         ofs << "    oxoxoo    ooxoo\n"
                "  ooxoxo oo  oxoxooo\n"

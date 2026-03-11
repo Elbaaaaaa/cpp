@@ -13,13 +13,13 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name("Default"), isSigned(false), gradeToSign(lowestGrade), gradeToExecute(lowestGrade)
+AForm::AForm() : name("Default"), target("Default"), isSigned(false), gradeToSign(lowestGrade), gradeToExecute(lowestGrade)
 {
 	std::cout << GREEN << "AForm default constructor called" << RESET << std::endl;
 }
 
-AForm::AForm(std::string const &name, int gradeToSign, int gradeToExecute) 
-	: name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
+AForm::AForm(std::string const &name, std::string const &target, int gradeToSign, int gradeToExecute) 
+	: name(name), target(target), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
 	std::cout << GREEN << "AForm constructor called" << RESET << std::endl;
 	if (gradeToSign < highestGrade || gradeToExecute < highestGrade)
@@ -29,7 +29,7 @@ AForm::AForm(std::string const &name, int gradeToSign, int gradeToExecute)
 }
 
 AForm::AForm(const AForm& other) 
-	: name(other.name), isSigned(other.isSigned), 
+	: name(other.name), target(other.target), isSigned(other.isSigned), 
 	  gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
 {
 	std::cout << GREEN << "AForm copy constructor called" << RESET << std::endl;
@@ -51,6 +51,11 @@ AForm::~AForm()
 std::string AForm::getName() const
 {
 	return this->name;
+}
+
+std::string AForm::getTarget() const
+{
+	return this->target;
 }
 
 bool AForm::getIsSigned() const
@@ -101,7 +106,7 @@ const char* AForm::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream& out, const AForm& AForm)
 {
-	out << AForm.getName() << ", AForm status: " << (AForm.getIsSigned() ? "signed" : "unsigned")
+	out << "Form " << AForm.getName() << " (target: " << AForm.getTarget() << "), status: " << (AForm.getIsSigned() ? "signed" : "unsigned")
 		<< ", grade to sign: " << AForm.getGradeToSign() 
 		<< ", grade to execute: " << AForm.getGradeToExecute();
 	return out;

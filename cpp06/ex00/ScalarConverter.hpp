@@ -1,0 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/09 11:11:47 by ebella            #+#    #+#             */
+/*   Updated: 2026/02/09 11:11:47 by ebella           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
+
+#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <climits>
+#include <cfloat>
+#include <cmath>
+
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
+#define ORANGE "\033[38;5;208m"
+
+class ScalarConverter
+{
+	private:
+		ScalarConverter();
+		ScalarConverter(const ScalarConverter& other);
+		ScalarConverter& operator=(const ScalarConverter& other);
+		~ScalarConverter();
+
+	public:
+		static void convert(std::string literal);
+};
+
+#endif
