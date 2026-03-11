@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:49:01 by ebella            #+#    #+#             */
-/*   Updated: 2026/01/22 16:37:15 by ebella           ###   ########.fr       */
+/*   Updated: 2026/02/23 12:37:53 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm",1
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : AForm(target, 145, 137)
 {
 	std::cout << GREEN << "ShrubberyCreationForm constructor called" << RESET << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other)
+{
+	std::cout << GREEN << "ShrubberyCreationForm copy constructor called" << RESET << std::endl;
+}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
+{
+	std::cout << YELLOW << "ShrubberyCreationForm assignment operator called" << RESET << std::endl;
+	if (this != &other)
+		AForm::operator=(other);
+	return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

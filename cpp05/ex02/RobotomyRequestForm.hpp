@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:56:23 by ebella            #+#    #+#             */
-/*   Updated: 2026/01/24 13:12:44 by ebella           ###   ########.fr       */
+/*   Updated: 2026/02/23 12:36:45 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ class RobotomyRequestForm : public AForm
 	public:
 		RobotomyRequestForm();
 		RobotomyRequestForm(const std::string& target);
+		RobotomyRequestForm(const RobotomyRequestForm& other);
+		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 		~RobotomyRequestForm();
 		
 		virtual void performAction() const;		

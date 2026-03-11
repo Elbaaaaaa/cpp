@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 13:16:51 by ebella            #+#    #+#             */
-/*   Updated: 2026/01/24 13:18:56 by ebella           ###   ########.fr       */
+/*   Updated: 2026/02/23 12:38:27 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : AForm(target, 25, 5)
 {
 	std::cout << GREEN << "PresidentialPardonForm constructor called" << RESET << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other)
+{
+	std::cout << GREEN << "PresidentialPardonForm copy constructor called" << RESET << std::endl;
+}
+
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
+{
+	std::cout << YELLOW << "PresidentialPardonForm assignment operator called" << RESET << std::endl;
+	if (this != &other)
+		AForm::operator=(other);
+	return *this;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()

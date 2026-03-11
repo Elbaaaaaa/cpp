@@ -22,13 +22,13 @@
 int main()
 {
     std::srand(std::time(NULL));
-    std::cout << MAGENTA << "========== TESTS MODULE 05 EX03 - INTERN ==========" << RESET << std::endl;
+    std::cout << MAGENTA << "========== EX03 - INTERN ==========" << RESET << std::endl;
 
     try {
         Bureaucrat president("President", 1);
         Bureaucrat midLevel("Chef de bureau", 40);
 
-        std::cout << CYAN << "\n--- Test 1: Intern crée un RobotomyRequestForm ---" << RESET << std::endl;
+        std::cout << CYAN << "\n--- Test 1: Intern creat RobotomyRequestForm ---" << RESET << std::endl;
         {
             Intern someRandomIntern;
             AForm* rrf;
@@ -42,7 +42,7 @@ int main()
             }
         }
 
-        std::cout << CYAN << "\n--- Test 2: Intern crée un ShrubberyCreationForm ---" << RESET << std::endl;
+        std::cout << CYAN << "\n--- Test 2: Intern creat ShrubberyCreationForm ---" << RESET << std::endl;
         {
             Intern intern;
             AForm* shrub = intern.makeForm("shrubbery creation", "Home");
@@ -55,7 +55,7 @@ int main()
             }
         }
 
-        std::cout << CYAN << "\n--- Test 3: Intern crée un PresidentialPardonForm ---" << RESET << std::endl;
+        std::cout << CYAN << "\n--- Test 3: Intern creat un PresidentialPardonForm ---" << RESET << std::endl;
         {
             Intern intern;
             AForm* pardon = intern.makeForm("presidential pardon", "Arthur Dent");
@@ -68,12 +68,12 @@ int main()
             }
         }
 
-        std::cout << CYAN << "\n--- Test 4: Intern essaie de créer un formulaire inexistant ---" << RESET << std::endl;
+        std::cout << CYAN << "\n--- Test 4: Intern trys to creat a non valid form ---" << RESET << std::endl;
         {
             Intern intern;
             try {
                 AForm* unknown = intern.makeForm("unknown form", "Nobody");
-                delete unknown; // Ne sera jamais atteint
+                delete unknown;
             } catch (std::exception& e) {
                 std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
             }
@@ -82,22 +82,21 @@ int main()
         std::cout << CYAN << "\n--- Test 5: Cas limites ---" << RESET << std::endl;
         {
             Intern intern;
-            // Test avec des noms incorrects
             try {
-                AForm* bad1 = intern.makeForm("Robotomy Request", "Test"); // Mauvaise casse
+                AForm* bad1 = intern.makeForm("Robotomy Request", "Test");
                 delete bad1;
             } catch (std::exception& e) {
                 std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
             }
             try {
-                AForm* bad2 = intern.makeForm("shrubbery", "Test"); // Nom incomplet
-                delete bad2;
+                AForm* incompleteName = intern.makeForm("shrubbery", "Test");
+                delete incompleteName;
             } catch (std::exception& e) {
                 std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
             }
             try {
-                AForm* bad3 = intern.makeForm("", "Test"); // Nom vide
-                delete bad3;
+                AForm* emptyName = intern.makeForm("", "Test");
+                delete emptyName;
             } catch (std::exception& e) {
                 std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
             }

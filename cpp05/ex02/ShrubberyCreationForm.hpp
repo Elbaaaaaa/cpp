@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:44:40 by ebella            #+#    #+#             */
-/*   Updated: 2026/01/22 16:27:13 by ebella           ###   ########.fr       */
+/*   Updated: 2026/02/23 12:37:32 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class ShrubberyCreationForm : public AForm
 	public:
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(const std::string& target);
+		ShrubberyCreationForm(const ShrubberyCreationForm& other);
+		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 		~ShrubberyCreationForm();
 		
 		virtual void performAction() const;		

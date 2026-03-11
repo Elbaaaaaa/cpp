@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 13:16:01 by ebella            #+#    #+#             */
-/*   Updated: 2026/01/24 13:16:38 by ebella           ###   ########.fr       */
+/*   Updated: 2026/02/23 12:37:01 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,13 @@ class PresidentialPardonForm : public AForm
 	public:
 		PresidentialPardonForm();
 		PresidentialPardonForm(const std::string& target);
+		PresidentialPardonForm(const PresidentialPardonForm& other);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
 		~PresidentialPardonForm();
 		
 		virtual void performAction() const;		
 };
+
+std::ostream& operator<<(std::ostream& out, const PresidentialPardonForm& PresidentialPardonForm);
 
 #endif

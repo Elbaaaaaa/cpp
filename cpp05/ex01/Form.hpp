@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:08:27 by ebella            #+#    #+#             */
-/*   Updated: 2026/01/20 14:14:49 by ebella           ###   ########.fr       */
+/*   Updated: 2026/02/23 12:22:15 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <iostream>
 #include <exception>
 
-// Forward declaration
 class Bureaucrat;
 
 #define RESET   "\033[0m"
