@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 14:21:32 by ebella            #+#    #+#             */
-/*   Updated: 2026/03/11 13:08:21 by ebella           ###   ########.fr       */
+/*   Created: 2026/03/11 13:00:08 by ebella            #+#    #+#             */
+/*   Updated: 2026/03/11 13:01:13 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
-
-int main()
+struct Data
 {
-	Data data;
-	data.value = 42;
-	uintptr_t raw = Serializer::serialize(&data);
-	Data* ptr = Serializer::deserialize(raw);
-	std::cout << "Original value: " << data.value << std::endl;
-	std::cout << "Deserialized value: " << ptr->value << std::endl;
-	
-	return 0;
-}
+	int value;
+};

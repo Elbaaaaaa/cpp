@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 14:18:45 by ebella            #+#    #+#             */
-/*   Updated: 2026/02/12 14:18:45 by ebella           ###   ########.fr       */
+/*   Updated: 2026/03/11 13:02:31 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <string>
 #include <iostream>
+#include <stdint.h>
+#include "Data.hpp"
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
