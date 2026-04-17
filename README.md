@@ -49,4 +49,4 @@ make clean  # Nettoie
 
 ## 👤 Auteur
 
-Projet réalisé dans le cadre du cursus 42.
+Projet réalisé par dans le cadre du cursus 42.
