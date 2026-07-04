@@ -6,7 +6,7 @@
 /*   By: ebella <ebella@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 13:04:55 by ebella            #+#    #+#             */
-/*   Updated: 2026/06/04 13:51:29 by ebella           ###   ########.fr       */
+/*   Updated: 2026/06/14 14:12:01 by ebella           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,19 @@ class Span
 		Span(const Span &other);
 		Span& operator=(const Span &other);
 
-		void addNumber(int number);
-		int shortestSpan() const;
-		int longestSpan() const;
+		template<typename T>
+		void addNumber(T begin, T end)
+		{
+		    unsigned int dist = std::distance(begin, end);
+		
+		    if (dist + _numbers.size() > N)
+		        throw std::runtime_error("Error: Not enough space");
+		    _numbers.insert(_numbers.end(), begin, end);
+		}
+		
+		void 		 addNumber(int number);
+		unsigned int shortestSpan() const;
+		unsigned int longestSpan() const;
 
 };
 
