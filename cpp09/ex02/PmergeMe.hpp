@@ -13,8 +13,6 @@ class	PmergeMe
 		std::vector<int>	_vec;
 		std::deque<int>		_deq;
 
-		std::vector<int>	_fordJhonSeq;
-
 		double	_timeVect;
 		double	_timeDeq;
 
@@ -28,7 +26,7 @@ class	PmergeMe
 		void	printTime();
 		void	printFinalResult();
 
-		void	JacobsthalSequence(int	pendantChainSize);
+		std::vector<int>	JacobsthalSequence(int	size);
 
 		template <typename T>
 		void	fordJonsonSort(T& container);

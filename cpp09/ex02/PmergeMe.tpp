@@ -30,6 +30,22 @@ void 	PmergeMe::fordJonsonSort(T& container)
 	
 	container.clear();
 	fordJonsonSort(mainChain);
+	
+	T pendantChain;
+	for (int i = 0; i <= mainChain.size() - 1; i++)
+	{
+		for (int j = 0; j < pairs.size(); j++)
+		{
+			if (mainChain[i] == pairs[j].first)
+			{
+				pendantChain.push_back(pairs[j].second);
+				pairs[j].first = -1;
+				break;
+			}
+		}
+	}
+
+	mainChain.insert(mainChain.begin(), pendantChain[0]);
 }
 
 template <typename T>
